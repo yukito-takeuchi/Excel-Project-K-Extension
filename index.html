@@ -140,6 +140,26 @@ body{font-family:'Meiryo','Yu Gothic',sans-serif;font-size:12px;background:#1e1e
 
 /* ハイライト */
 .highlight{background:#fff9c4;border-left:3px solid #f9a825;padding:6px 10px;font-size:11px;color:#555;margin:8px 0;}
+
+/* セル自動入力アニメーション */
+@keyframes cellFill{0%{background:#fffde7;color:#e65100;}60%{background:#f1f8e9;}100%{background:inherit;color:inherit;}}
+.auto-fill td{animation:cellFill 1.2s ease forwards;}
+.auto-fill td:nth-child(2){animation-delay:.05s;}
+.auto-fill td:nth-child(3){animation-delay:.1s;}
+.auto-fill td:nth-child(4){animation-delay:.15s;}
+.auto-fill td:nth-child(5){animation-delay:.2s;}
+.auto-fill tr:nth-child(2) td{animation-delay:.2s;}
+.auto-fill tr:nth-child(3) td{animation-delay:.35s;}
+.auto-fill tr:nth-child(4) td{animation-delay:.5s;}
+.auto-fill tr:nth-child(5) td{animation-delay:.65s;}
+.auto-fill tr:nth-child(6) td{animation-delay:.8s;}
+.auto-fill tr:nth-child(7) td{animation-delay:.95s;}
+.auto-fill tr:nth-child(8) td{animation-delay:1.1s;}
+
+/* 自動書き込みバナー */
+.auto-banner{background:#e3f2fd;border:1px solid #1565c0;border-radius:4px;padding:6px 12px;font-size:11px;color:#1565c0;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.dot-anim{display:inline-block;animation:dots 1.2s infinite;}
+@keyframes dots{0%{content:''}33%{content:'.'}66%{content:'..'}100%{content:'...'}}
 </style>
 </head>
 <body>
@@ -275,8 +295,9 @@ body{font-family:'Meiryo','Yu Gothic',sans-serif;font-size:12px;background:#1e1e
     <!-- 生成結果エリア（初期非表示） -->
     <div id="result1" style="display:none;">
       <div class="section">
+        <div class="auto-banner">⚡ <span>CSVデータからセルへ自動書き込み完了（手動コピペ不要）</span></div>
         <div class="section-title">📄 損益計算書（PL）- 令和6年9月期</div>
-        <table class="excel-table">
+        <table class="excel-table auto-fill" id="tbl-pl">
           <tr><th style="width:200px">科目</th><th>当月</th><th>累計</th><th>前年同月</th><th>増減</th></tr>
           <tr><td class="row-header">売上高</td><td class="num">42,500</td><td class="num">398,200</td><td class="num">38,900</td><td class="num pos">＋3,600</td></tr>
           <tr><td style="padding-left:16px">売上原価</td><td class="num">24,650</td><td class="num">231,050</td><td class="num">22,600</td><td class="num neg">▲2,050</td></tr>
@@ -360,21 +381,29 @@ body{font-family:'Meiryo','Yu Gothic',sans-serif;font-size:12px;background:#1e1e
 
     <div id="result2" style="display:none;">
       <div class="section">
+        <div class="auto-banner">⚡ <span>税込CSVから自動計算・セルへ書き込み完了</span></div>
         <div class="section-title">📄 キャッシュフロー計算書（間接法）</div>
-        <table class="excel-table">
-          <tr><th colspan="2">営業活動によるキャッシュフロー</th></tr>
-          <tr><td style="padding-left:12px">当期純利益</td><td class="num">38,500</td></tr>
-          <tr><td style="padding-left:12px">減価償却費</td><td class="num">12,400</td></tr>
-          <tr><td style="padding-left:12px">売掛金の増減</td><td class="num neg">▲8,200</td></tr>
-          <tr><td style="padding-left:12px">買掛金の増減</td><td class="num">4,100</td></tr>
-          <tr><td class="row-header total">営業CF合計</td><td class="num total pos">46,800</td></tr>
-          <tr><th colspan="2">投資活動によるキャッシュフロー</th></tr>
-          <tr><td style="padding-left:12px">設備投資</td><td class="num neg">▲18,000</td></tr>
-          <tr><td class="row-header total">投資CF合計</td><td class="num total neg">▲18,000</td></tr>
-          <tr><th colspan="2">財務活動によるキャッシュフロー</th></tr>
-          <tr><td style="padding-left:12px">借入金返済</td><td class="num neg">▲12,000</td></tr>
-          <tr><td class="row-header total">財務CF合計</td><td class="num total neg">▲12,000</td></tr>
-          <tr><td class="row-header total" style="background:#fce4d6">現金期末残高</td><td class="num total" style="background:#fce4d6">89,200</td></tr>
+        <table class="excel-table auto-fill" style="max-width:480px;">
+          <tr><th style="width:260px;text-align:left;padding-left:8px;">科目</th><th style="width:100px;">金額（千円）</th></tr>
+          <tr><td class="row-header" colspan="2">Ⅰ 営業活動によるキャッシュフロー</td></tr>
+          <tr><td style="padding-left:16px;">当期純利益</td><td class="num">38,500</td></tr>
+          <tr><td style="padding-left:16px;">減価償却費</td><td class="num">12,400</td></tr>
+          <tr><td style="padding-left:16px;">売掛金の増減額</td><td class="num neg">▲8,200</td></tr>
+          <tr><td style="padding-left:16px;">棚卸資産の増減額</td><td class="num neg">▲3,100</td></tr>
+          <tr><td style="padding-left:16px;">買掛金の増減額</td><td class="num">4,100</td></tr>
+          <tr><td style="padding-left:16px;">その他</td><td class="num">3,100</td></tr>
+          <tr><td class="total row-header">　営業活動によるCF合計</td><td class="num total pos">46,800</td></tr>
+          <tr><td class="row-header" colspan="2">Ⅱ 投資活動によるキャッシュフロー</td></tr>
+          <tr><td style="padding-left:16px;">有形固定資産の取得</td><td class="num neg">▲18,000</td></tr>
+          <tr><td style="padding-left:16px;">投資有価証券の取得</td><td class="num neg">▲2,500</td></tr>
+          <tr><td class="total row-header">　投資活動によるCF合計</td><td class="num total neg">▲20,500</td></tr>
+          <tr><td class="row-header" colspan="2">Ⅲ 財務活動によるキャッシュフロー</td></tr>
+          <tr><td style="padding-left:16px;">長期借入金の返済</td><td class="num neg">▲12,000</td></tr>
+          <tr><td style="padding-left:16px;">配当金の支払</td><td class="num neg">▲3,000</td></tr>
+          <tr><td class="total row-header">　財務活動によるCF合計</td><td class="num total neg">▲15,000</td></tr>
+          <tr><td class="row-header" style="background:#dce6f1;">現金及び現金同等物の増減額</td><td class="num" style="background:#dce6f1;">11,300</td></tr>
+          <tr><td class="row-header" style="background:#dce6f1;">現金及び現金同等物の期首残高</td><td class="num" style="background:#dce6f1;">77,900</td></tr>
+          <tr><td class="row-header total" style="background:#fce4d6;">現金及び現金同等物の期末残高</td><td class="num total" style="background:#fce4d6;">89,200</td></tr>
         </table>
       </div>
       <div class="section">
