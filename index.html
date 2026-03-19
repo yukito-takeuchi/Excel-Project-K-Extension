@@ -311,7 +311,7 @@ body{font-family:'Meiryo','Yu Gothic',sans-serif;font-size:12px;background:#1e1e
 
       <div class="section">
         <div class="section-title">📄 貸借対照表（BS）- 令和6年9月期末</div>
-        <table class="excel-table auto-fill" style="max-width:400px;">
+        <table class="excel-table auto-fill" style="width:100%;">
           <tr><th colspan="2" style="text-align:left;padding-left:8px;">【資産の部】</th></tr>
           <tr><td class="row-header">流動資産</td><td class="num">184,300</td></tr>
           <tr><td style="padding-left:16px">　現預金</td><td class="num">89,200</td></tr>
@@ -387,7 +387,7 @@ body{font-family:'Meiryo','Yu Gothic',sans-serif;font-size:12px;background:#1e1e
       <div class="section">
         <div class="auto-banner">⚡ <span>税込CSVから自動計算・セルへ書き込み完了</span></div>
         <div class="section-title">📄 キャッシュフロー計算書（間接法）</div>
-        <table class="excel-table auto-fill" style="max-width:480px;">
+        <table class="excel-table auto-fill" style="width:100%;">
           <tr><th style="width:260px;text-align:left;padding-left:8px;">科目</th><th style="width:100px;">金額（千円）</th></tr>
           <tr><td class="row-header" colspan="2">Ⅰ 営業活動によるキャッシュフロー</td></tr>
           <tr><td style="padding-left:16px;">当期純利益</td><td class="num">38,500</td></tr>
@@ -490,31 +490,31 @@ body{font-family:'Meiryo','Yu Gothic',sans-serif;font-size:12px;background:#1e1e
     <div id="result3" style="display:none;">
       <div class="section">
         <div class="section-title">📊 決算書図表（PL・BS ビジュアル）</div>
-        <div style="display:flex;gap:16px;flex-wrap:wrap;">
-          <div class="chart-mock" style="flex:1;min-width:200px;">
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div class="chart-mock">
             <div class="chart-mock-title">PL構造図</div>
-            <div style="display:flex;height:120px;gap:4px;align-items:flex-end;">
-              <div style="flex:1;display:flex;flex-direction:column;">
-                <div style="flex:1;background:#1f4e79;display:flex;align-items:center;justify-content:center;color:white;font-size:10px;border-radius:2px;">売上原価</div>
-                <div style="height:42%;background:#70ad47;display:flex;align-items:center;justify-content:center;color:white;font-size:10px;border-radius:2px;margin-top:2px;">粗利益</div>
+            <div style="display:flex;height:160px;gap:4px;">
+              <div style="flex:1;display:flex;flex-direction:column;height:100%;">
+                <div style="flex:1;background:#1f4e79;display:flex;align-items:center;justify-content:center;color:white;font-size:11px;border-radius:2px;">売上原価</div>
+                <div style="height:38%;background:#70ad47;display:flex;align-items:center;justify-content:center;color:white;font-size:11px;border-radius:2px;margin-top:3px;">粗利益</div>
               </div>
-              <div style="flex:1;display:flex;flex-direction:column;">
-                <div style="flex:1;background:#4472c4;display:flex;align-items:center;justify-content:center;color:white;font-size:10px;border-radius:2px;">固定費</div>
-                <div style="height:32%;background:#ffc000;display:flex;align-items:center;justify-content:center;color:#333;font-size:10px;border-radius:2px;margin-top:2px;font-weight:bold;">経常利益</div>
+              <div style="flex:1;display:flex;flex-direction:column;height:100%;">
+                <div style="flex:1;background:#4472c4;display:flex;align-items:center;justify-content:center;color:white;font-size:11px;border-radius:2px;">固定費</div>
+                <div style="height:30%;background:#ffc000;display:flex;align-items:center;justify-content:center;color:#333;font-size:11px;border-radius:2px;margin-top:3px;font-weight:bold;">経常利益</div>
               </div>
             </div>
           </div>
-          <div class="chart-mock" style="flex:1;min-width:200px;">
+          <div class="chart-mock">
             <div class="chart-mock-title">BS構造図</div>
-            <div style="display:flex;height:120px;gap:4px;">
+            <div style="display:flex;height:140px;gap:4px;">
               <div style="flex:1;display:flex;flex-direction:column;">
-                <div style="height:66%;background:#70ad47;display:flex;align-items:center;justify-content:center;color:white;font-size:10px;border-radius:2px;">流動資産</div>
-                <div style="flex:1;background:#4472c4;display:flex;align-items:center;justify-content:center;color:white;font-size:10px;border-radius:2px;margin-top:2px;">固定資産</div>
+                <div style="height:66%;background:#70ad47;display:flex;align-items:center;justify-content:center;color:white;font-size:11px;border-radius:2px;">流動資産</div>
+                <div style="flex:1;background:#4472c4;display:flex;align-items:center;justify-content:center;color:white;font-size:11px;border-radius:2px;margin-top:2px;">固定資産</div>
               </div>
               <div style="flex:1;display:flex;flex-direction:column;">
-                <div style="height:35%;background:#c00;display:flex;align-items:center;justify-content:center;color:white;font-size:10px;border-radius:2px;">流動負債</div>
-                <div style="height:26%;background:#ff9900;display:flex;align-items:center;justify-content:center;color:white;font-size:10px;border-radius:2px;margin-top:2px;">固定負債</div>
-                <div style="flex:1;background:#ffc000;display:flex;align-items:center;justify-content:center;color:#333;font-size:10px;border-radius:2px;margin-top:2px;font-weight:bold;">純資産</div>
+                <div style="height:35%;background:#c00;display:flex;align-items:center;justify-content:center;color:white;font-size:11px;border-radius:2px;">流動負債</div>
+                <div style="height:26%;background:#ff9900;display:flex;align-items:center;justify-content:center;color:white;font-size:11px;border-radius:2px;margin-top:2px;">固定負債</div>
+                <div style="flex:1;background:#ffc000;display:flex;align-items:center;justify-content:center;color:#333;font-size:11px;border-radius:2px;margin-top:2px;font-weight:bold;">純資産</div>
               </div>
             </div>
           </div>
